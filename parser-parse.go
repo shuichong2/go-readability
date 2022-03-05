@@ -13,7 +13,7 @@ import (
 // Parse parses a reader and find the main readable content.
 func (ps *Parser) Parse(input io.Reader, pageURL *nurl.URL) (Article, error) {
 	// Parse input
-	doc, err := dom.Parse(input)
+	doc, err := dom.FastParse(input)
 	if err != nil {
 		return Article{}, fmt.Errorf("failed to parse input: %v", err)
 	}
